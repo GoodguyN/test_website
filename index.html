@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" id="meta-desc" content="">
+<title id="page-title"></title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/config.js"></script>
+<script>
+  document.getElementById('page-title').textContent   = SITE.nom + ' — ' + SITE.metier + ' à ' + SITE.ville;
+  document.getElementById('meta-desc').content        = SITE.metaDesc;
+</script>
+</head>
+<body>
+
+<!-- ══════════════ HEADER ══════════════ -->
+<header class="site-header">
+  <div class="wrap">
+    <div class="header-inner">
+      <a href="index.html" class="header-logo">
+        <span class="header-logo-dot"></span>
+        <span data-site="nom"></span>
+      </a>
+      <nav class="header-nav">
+        <a href="index.html">Accueil</a>
+        <a href="pages/services.html">Services</a>
+        <a href="pages/avis.html">Avis clients</a>
+        <a href="pages/contact.html">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <a href="" data-href="tel" class="header-tel" data-site="tel"></a>
+      </div>
+      <button class="ham" id="ham" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mob-menu" id="mob-menu">
+  <a href="index.html">Accueil</a>
+  <a href="pages/services.html">Services</a>
+  <a href="pages/avis.html">Avis clients</a>
+  <a href="pages/contact.html">Contact</a>
+  <a href="" data-href="tel" class="mob-tel" data-site="tel"></a>
+</div>
+
+<!-- ══════════════ HERO ══════════════ -->
+<section class="hero">
+  <div class="hero-bg">
+    <div class="hero-img-wrap">
+      <!-- Remplacer par une vraie photo de chantier -->
+      <div style="width:100%;height:100%;background:linear-gradient(135deg,var(--brand) 0%,var(--brand-dark) 100%);"></div>
+    </div>
+  </div>
+  <div class="hero-content">
+    <div class="wrap">
+      <div class="hero-inner">
+        <div>
+          <div class="hero-overline">
+            <span class="t-overline" data-site="metier"> &mdash; <span data-site="ville"></span></span>
+          </div>
+          <h1 class="t-display hero-title">
+            L'artisan<br><em>de confiance</em><br>à <span data-site="ville"></span>
+          </h1>
+          <p class="hero-sub" data-site="slogan"></p>
+          <div class="hero-actions">
+            <a href="" data-href="tel" class="btn btn--accent btn--xl">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 0 0 2.08 3a2 2 0 012-2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+              <span data-site="tel"></span>
+            </a>
+            <a href="pages/services.html" class="btn btn--outline-white btn--xl">Nos services</a>
+          </div>
+          <div class="hero-stats" id="hero-stats"></div>
+        </div>
+        <div class="hero-card">
+          <div class="hero-card-title">Pourquoi nous choisir</div>
+          <div class="hero-card-items" id="hero-card-items"></div>
+          <div class="hero-card-cta">
+            <a href="pages/contact.html" class="btn btn--accent btn--full">Demander un devis gratuit</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ TRUST BAR ══════════════ -->
+<div class="trust-bar">
+  <div class="wrap--wide" style="padding:0">
+    <div class="trust-bar-inner" id="trust-bar"></div>
+  </div>
+</div>
+
+<!-- ══════════════ ABOUT ══════════════ -->
+<section class="section">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-visual">
+        <div class="about-img-primary">
+          <div class="img-placeholder">
+            <div class="img-placeholder-icon">
+              <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/>
+              </svg>
+            </div>
+            <span class="img-placeholder-label">Photo de l'artisan</span>
+          </div>
+        </div>
+        <div class="about-badge">
+          <div class="about-badge-n" id="about-badge-n"></div>
+          <div class="about-badge-l">ans d'expérience</div>
+        </div>
+      </div>
+      <div class="about-text">
+        <span class="t-overline">À propos</span>
+        <h2 class="t-h2" style="margin-top:16px" data-site="nom"></h2>
+        <p class="t-body" style="margin-top:16px" data-site="description"></p>
+        <div class="about-certs" id="about-certs"></div>
+        <a href="pages/contact.html" class="btn btn--outline-dark" style="margin-top:32px">Demander un devis</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ SERVICES ══════════════ -->
+<section class="section section--alt">
+  <div class="wrap">
+    <div class="section-header">
+      <span class="t-overline">Prestations</span>
+      <h2 class="t-h2" style="margin-top:16px">Nos services</h2>
+      <p class="t-body" style="max-width:520px;margin-top:12px">
+        Interventions à <span data-site="ville"></span> et <span data-site="region" id="region-txt"></span>. Devis gratuit.
+      </p>
+    </div>
+    <div class="services-grid" id="services-grid"></div>
+    <div style="text-align:center;margin-top:40px">
+      <a href="pages/services.html" class="btn btn--outline-dark">Voir tous nos services</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ URGENCE ══════════════ -->
+<div class="urgence-banner">
+  <div class="wrap">
+    <div class="urgence-inner">
+      <div class="urgence-left">
+        <div class="urgence-line"></div>
+        <div>
+          <div class="urgence-title">Urgence plomberie ?</div>
+          <div class="urgence-sub">Disponible 7j/7 &mdash; Intervention rapide &agrave; <span data-site="ville"></span></div>
+        </div>
+      </div>
+      <a href="" data-href="tel" class="urgence-tel" data-site="tel"></a>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ AVIS ══════════════ -->
+<section class="section">
+  <div class="wrap">
+    <div class="reviews-header">
+      <div>
+        <span class="t-overline">Avis clients</span>
+        <h2 class="t-h2" style="margin-top:16px">Ce que disent nos clients</h2>
+      </div>
+      <div class="reviews-score">
+        <div class="reviews-score-n" id="reviews-score-n"></div>
+        <div class="reviews-score-stars">★★★★★</div>
+        <div class="reviews-score-label" id="reviews-score-label"></div>
+      </div>
+    </div>
+    <div class="reviews-grid" id="reviews-grid"></div>
+    <div style="text-align:center;margin-top:40px">
+      <a href="pages/avis.html" class="btn btn--outline-dark">Lire tous les avis</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ ZONE ══════════════ -->
+<section class="section section--alt">
+  <div class="wrap">
+    <div class="section-header" style="margin-bottom:0">
+      <span class="t-overline">Zone d'intervention</span>
+      <h2 class="t-h2" style="margin-top:16px">Nous intervenons à <span data-site="ville"></span> et alentours</h2>
+      <p class="t-body" style="max-width:580px;margin-top:12px">
+        Artisan local, nous connaissons chaque quartier de l'agglomération et intervenons rapidement.
+      </p>
+    </div>
+    <div class="zone-chips" id="zone-chips"></div>
+  </div>
+</section>
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-name" data-site="nom"></div>
+        <p class="footer-brand-desc" data-site="description"></p>
+        <a href="" data-href="tel" class="footer-brand-tel" data-site="tel"></a>
+      </div>
+      <div>
+        <div class="footer-col-label">Navigation</div>
+        <ul class="footer-links">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="pages/services.html">Services</a></li>
+          <li><a href="pages/avis.html">Avis clients</a></li>
+          <li><a href="pages/contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-label">Services</div>
+        <ul class="footer-links" id="footer-services"></ul>
+      </div>
+      <div>
+        <div class="footer-col-label">Contact</div>
+        <ul class="footer-links">
+          <li><a href="" data-href="tel" data-site="tel"></a></li>
+          <li><a href="" data-href="email" data-site="email"></a></li>
+          <li><span data-site="adresse"></span></li>
+          <li><span data-site="horaires"></span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">&copy; <span data-year></span> <span data-site="nom"></span> &mdash; Tous droits r&eacute;serv&eacute;s</span>
+      <span class="footer-cert" id="footer-cert"></span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/main.js"></script>
+<script>
+(function () {
+  /* Badge years of experience */
+  const yr = new Date().getFullYear() - SITE.anneeCreation;
+  const badge = document.getElementById('about-badge-n');
+  if (badge) badge.textContent = yr;
+
+  /* Hero stats */
+  const statsEl = document.getElementById('hero-stats');
+  SITE.stats.forEach(s => {
+    statsEl.innerHTML += `<div class="hero-stat"><div class="hero-stat-n">${s.valeur}</div><div class="hero-stat-l">${s.label}</div></div>`;
+  });
+
+  /* Hero card items — use certifications */
+  const cardEl = document.getElementById('hero-card-items');
+  SITE.certifications.forEach(c => {
+    cardEl.innerHTML += `
+      <div class="hero-card-item">
+        <div class="hero-card-check">
+          <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <span class="hero-card-text">${c}</span>
+      </div>`;
+  });
+
+  /* Trust bar */
+  const trustData = [
+    SITE.metier + ' à ' + SITE.ville,
+    'Dépannages 7j/7',
+    'Interventions 24h/24',
+    SITE.certifications[0] || 'Artisan certifié',
+    'Devis gratuit',
+  ];
+  const trustEl = document.getElementById('trust-bar');
+  trustData.forEach(t => {
+    trustEl.innerHTML += `<div class="trust-item"><div class="trust-item-marker"></div><span class="trust-item-text">${t}</span></div>`;
+  });
+
+  /* Services grid */
+  const srvEl = document.getElementById('services-grid');
+  SITE.services.forEach((s, i) => {
+    srvEl.innerHTML += `
+      <div class="srv-card">
+        <div class="srv-card-num">0${i + 1}</div>
+        <div class="srv-card-title">${s.titre}</div>
+        <div class="srv-card-desc">${s.resume}</div>
+        <a href="pages/services.html#${s.slug}" class="srv-card-link">En savoir plus →</a>
+      </div>`;
+  });
+
+  /* Reviews — show 3 */
+  document.getElementById('reviews-score-n').textContent = SITE.noteGlobale;
+  document.getElementById('reviews-score-label').textContent = 'Basé sur ' + SITE.nbAvis + ' avis Google';
+  const rvEl = document.getElementById('reviews-grid');
+  SITE.avis.slice(0, 3).forEach(a => {
+    rvEl.innerHTML += `
+      <div class="review-card">
+        <div class="review-card-stars">★★★★★</div>
+        <p class="review-card-text">« ${a.texte} »</p>
+        <div class="review-card-author">
+          <div class="review-card-av">${a.initiales}</div>
+          <div>
+            <div class="review-card-name">${a.prenom}</div>
+            <div class="review-card-ville">${a.ville}</div>
+          </div>
+        </div>
+      </div>`;
+  });
+
+  /* Zone chips */
+  const zEl = document.getElementById('zone-chips');
+  SITE.zones.forEach(z => {
+    zEl.innerHTML += `<span class="zone-chip">${z}</span>`;
+  });
+
+  /* Footer services */
+  const fsEl = document.getElementById('footer-services');
+  SITE.services.slice(0, 4).forEach(s => {
+    fsEl.innerHTML += `<li><a href="pages/services.html#${s.slug}">${s.titre}</a></li>`;
+  });
+
+  /* Footer cert badge */
+  const fcEl = document.getElementById('footer-cert');
+  if (fcEl && SITE.certifications[0]) fcEl.textContent = SITE.certifications[0];
+
+  /* Region text */
+  const rEl = document.getElementById('region-txt');
+  if (rEl) rEl.textContent = SITE.region;
+})();
+</script>
+</body>
+</html>

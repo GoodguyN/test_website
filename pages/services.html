@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<title id="page-title"></title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="../css/style.css">
+<script src="../js/config.js"></script>
+<script>
+  document.getElementById('page-title').textContent = 'Services — ' + SITE.nom;
+  document.querySelector('meta[name="description"]').content =
+    'Découvrez tous les services de ' + SITE.nom + ', ' + SITE.metier.toLowerCase() + ' à ' + SITE.ville + '. ' + SITE.certifications.join(', ') + '.';
+</script>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="wrap">
+    <div class="header-inner">
+      <a href="../index.html" class="header-logo">
+        <span class="header-logo-dot"></span>
+        <span data-site="nom"></span>
+      </a>
+      <nav class="header-nav">
+        <a href="../index.html">Accueil</a>
+        <a href="services.html">Services</a>
+        <a href="avis.html">Avis clients</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <a href="" data-href="tel" class="header-tel" data-site="tel"></a>
+      </div>
+      <button class="ham" id="ham" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mob-menu" id="mob-menu">
+  <a href="../index.html">Accueil</a>
+  <a href="services.html">Services</a>
+  <a href="avis.html">Avis clients</a>
+  <a href="contact.html">Contact</a>
+  <a href="" data-href="tel" class="mob-tel" data-site="tel"></a>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="wrap">
+    <div class="page-hero-inner">
+      <nav class="breadcrumb">
+        <a href="../index.html">Accueil</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>Services</span>
+      </nav>
+      <span class="t-overline">Nos prestations</span>
+      <h1 class="page-hero-title" style="margin-top:16px">Services de<br><span data-site="metier"></span></h1>
+      <p class="page-hero-sub">
+        Interventions à <span data-site="ville"></span> et toute la zone <span data-site="region" id="hero-region"></span>. Devis gratuit, réponse rapide.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES LIST -->
+<section class="section">
+  <div class="wrap">
+    <div id="services-detail-container"></div>
+  </div>
+</section>
+
+<!-- URGENCE BANNER -->
+<div class="urgence-banner">
+  <div class="wrap">
+    <div class="urgence-inner">
+      <div class="urgence-left">
+        <div class="urgence-line"></div>
+        <div>
+          <div class="urgence-title">Une urgence ?</div>
+          <div class="urgence-sub">Disponible 7j/7 &mdash; <span data-site="horaires"></span></div>
+        </div>
+      </div>
+      <a href="" data-href="tel" class="urgence-tel" data-site="tel"></a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-name" data-site="nom"></div>
+        <p class="footer-brand-desc" data-site="description"></p>
+        <a href="" data-href="tel" class="footer-brand-tel" data-site="tel"></a>
+      </div>
+      <div>
+        <div class="footer-col-label">Navigation</div>
+        <ul class="footer-links">
+          <li><a href="../index.html">Accueil</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="avis.html">Avis clients</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-label">Services</div>
+        <ul class="footer-links" id="footer-services"></ul>
+      </div>
+      <div>
+        <div class="footer-col-label">Contact</div>
+        <ul class="footer-links">
+          <li><a href="" data-href="tel" data-site="tel"></a></li>
+          <li><a href="" data-href="email" data-site="email"></a></li>
+          <li><span data-site="adresse"></span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">&copy; <span data-year></span> <span data-site="nom"></span></span>
+      <span class="footer-cert" id="footer-cert"></span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script>
+(function () {
+  /* Region text */
+  document.getElementById('hero-region').textContent = SITE.region;
+
+  /* Build each service section */
+  const container = document.getElementById('services-detail-container');
+  SITE.services.forEach((s, i) => {
+    const isEven = i % 2 === 0;
+    container.innerHTML += `
+      <div id="${s.slug}" style="display:grid;grid-template-columns:1fr 460px;gap:64px;align-items:start;padding-bottom:72px;margin-bottom:72px;border-bottom:1px solid var(--line);">
+        <div>
+          <span class="t-overline">Prestation 0${i + 1}</span>
+          <h2 class="t-h2" style="margin-top:14px;margin-bottom:20px">${s.titre}</h2>
+          <p class="t-body">${s.texte}</p>
+          <a href="contact.html" class="btn btn--accent" style="margin-top:32px">Demander un devis gratuit</a>
+        </div>
+        <div style="background:var(--surface);border-radius:12px;overflow:hidden;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;">
+          <div class="img-placeholder">
+            <div class="img-placeholder-icon">
+              <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/>
+                <polyline points="21 15 16 10 5 21"/>
+              </svg>
+            </div>
+            <span class="img-placeholder-label">Photo — ${s.titre}</span>
+          </div>
+        </div>
+      </div>`;
+  });
+
+  /* Remove last border */
+  const last = container.lastElementChild;
+  if (last) last.style.borderBottom = 'none';
+
+  /* Footer services */
+  const fsEl = document.getElementById('footer-services');
+  SITE.services.slice(0, 4).forEach(s => {
+    fsEl.innerHTML += `<li><a href="services.html#${s.slug}">${s.titre}</a></li>`;
+  });
+
+  /* Footer cert */
+  const fcEl = document.getElementById('footer-cert');
+  if (fcEl && SITE.certifications[0]) fcEl.textContent = SITE.certifications[0];
+
+  /* Responsive fix for service sections */
+  if (window.innerWidth < 768) {
+    container.querySelectorAll('[style*="grid-template-columns"]').forEach(el => {
+      el.style.gridTemplateColumns = '1fr';
+      el.style.gap = '24px';
+    });
+  }
+})();
+</script>
+</body>
+</html>
